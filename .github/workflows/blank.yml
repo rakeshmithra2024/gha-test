@@ -1,8 +1,10 @@
-name: hello world workflow
+name: hello world workflow  #workflowname
 on: workflow_dispatch
 jobs:
-  hello:
+  hello: #job name
     runs-on: ubuntu-latest
     steps: 
-    - name: hello step1
+    - name: hello step1 #step name
       run: echo " first steps in GHA "
+
+#workflow -> job-> step 
