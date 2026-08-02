@@ -1,0 +1,10 @@
+name: hello-world
+on: workflow_dispatch
+jobs:
+  helloworld-test:
+   runs-on: ubuntu-latest
+   steps:
+     - name: hello-printstep
+       run: echo"welcome to GHA"
+  
+
