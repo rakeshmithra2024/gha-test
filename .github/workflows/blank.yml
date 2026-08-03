@@ -6,5 +6,5 @@ jobs:
     steps:
       - name: build-step
         run: echo "hello ${{ vars.MY_NAME }}"
-  
+        run: echo "hello ${{ secrets.DOCKER_PAT }}"
 
