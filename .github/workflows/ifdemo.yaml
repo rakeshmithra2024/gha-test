@@ -1,0 +1,27 @@
+name: Branch Name Demo
+
+# Trigger this workflow on push events to any branch
+on:
+  push:
+    branches:
+      - '*'  # Match all branch names
+
+jobs:
+  print-branch-name:
+    # Run on the latest Ubuntu runner
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Step 1: Execute when pushing to ANY branch EXCEPT main
+      # github.ref contains the full ref path (e.g., refs/heads/feature-branch)
+      # github.ref_name contains just the branch name (e.g., feature-branch)
+      - name: Print branch name for non-main branches
+        if: github.ref != 'refs/heads/main'  # Condition: NOT main branch
+        run: |
+          echo "Pushed to branch: ${{ github.ref_name }}"
+          
+      # Step 2: Execute ONLY when pushing to main branch
+      - name: Print branch name for main branch
+        if: github.ref == 'refs/heads/main'  # Condition: IS main branch
+        run: |
+          echo "Pushed to main branch"
