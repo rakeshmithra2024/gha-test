@@ -8,4 +8,8 @@ jobs:
         uses: actions/checkout@v4
         
       - name: print index.html
-        run: cat index.html
+        run: 
+          cat index.html
+          echo " this work flow triggered by ${{ github.actor }} "
+          echo " this repo name is ${{ github.repository }} "
+          echo " this repo is on ${{ github.branch }} "  
